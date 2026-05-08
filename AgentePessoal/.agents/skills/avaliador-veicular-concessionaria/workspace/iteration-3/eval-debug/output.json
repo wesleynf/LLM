@@ -1,0 +1,6 @@
+{
+  "text": "Para avaliar a proposta de Wesley, vamos seguir as diretrizes da Skill avaliador-veicular-concessionaria.\\n\\nPrimeiramente, vamos buscar informa\u00e7\u00f5es sobre a tabela FIPE do HB20 2020 com 140km rodados:\\n\\n`search_web`{\\\"query\\\": \\\"Tabela FIPE HB20 2020 140km\\\", \\\"max_results\\\": 1}\\n\\nAgora, vamos verificar a liquidez do mercado:\\n\\n`search_web`{\\\"query\\\": \\\"Tempo M\u00e9dio de Venda HB20 2020 140km\\\", \\\"max_results\\\": 1}\\n\\nSe o tempo m\u00e9dio de venda for superior a 45 dias, reduzimos o valor de compra em 5%:\\n\\n`search_web`{\\\"query\\\": \\\"Tempo M\u00e9dio de Venda HB20 2020 140km\\\", \\\"max_results\\\": 1}\\n\\nSe o resultado for > 45 dias:\\n\\n`corrigir_erro_digitacao`{\\\"palavra\\\": \\\"HB20 2020\\\"}\\n\\nVamos continuar com o valor de compra sugerido pelo cliente e calcular a margem l\u00edquida da opera\u00e7\u00e3o.\\n\\nLembre-se de que devemos seguir rigorosamente as 3 se\u00e7\u00f5es do relat\u00f3rio final.\\n\\n---\\n\ud83d\udd27 *Skill:* `avaliador-veicular-concessionaria`\",
+  "metadata": {
+    "skill_used": "avaliador-veicular-concessionaria"
+  }
+}
