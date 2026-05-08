@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentação Técnica - Agente de Habilidades ReAct</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f4f7f9; }
+        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        code { background: #f8f8f8; padding: 2px 5px; border-radius: 4px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9em; }
+        pre { background: #2d3436; color: #dfe6e9; padding: 20px; border-radius: 6px; overflow-x: auto; }
+        .skill-card { border-left: 5px solid #3498db; background: #eef7fd; padding: 15px; margin: 20px 0; border-radius: 0 5px 5px 0; }
+        .architecture-img { width: 100%; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; margin-right: 5px; }
+        .badge-core { background: #3498db; color: white; }
+        .badge-tool { background: #27ae60; color: white; }
+        .badge-provider { background: #f39c12; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Agente de Habilidades ReAct (Versão Python)</h1>
+        <p>Este projeto representa a migração e evolução do sistema de orquestração de agentes de TypeScript para Python, focado em alta disponibilidade, execução stateless e multi-modalidade.</p>
+
+        <h2>🏗️ Arquitetura do Sistema</h2>
+        <p>O sistema utiliza o padrão <strong>ReAct (Reasoning and Acting)</strong> para permitir que o LLM "pense" antes de agir, utilizando ferramentas dinâmicas para resolver problemas complexos em tempo real.</p>
+        
+        <h3>Fluxo de Execução</h3>
+        <ol>
+            <li><strong>Telegram Input</strong>: Recebe texto, áudio ou PDF.</li>
+            <li><strong>Controller</strong>: Prefetch de metadados e roteamento de intenção.</li>
+            <li><strong>Agent Loop</strong>: Ciclo de Pensamento -> Ação -> Observação.</li>
+            <li><strong>Failover Provider</strong>: Tenta Gemini (Google); se falhar, escala para Groq (Llama-3/Qwen).</li>
+            <li><strong>Output Handler</strong>: Formata a resposta final (Markdown, Voz ou Documento).</li>
+        </ol>
+
+        <h2>📂 Estrutura de Módulos</h2>
+        <ul>
+            <li><span class="badge badge-core">Core</span> <code>agent_controller.py</code>: Gerencia o estado e o ciclo de vida da requisição.</li>
+            <li><span class="badge badge-core">Core</span> <code>agent_loop.py</code>: Implementa o motor ReAct com parsing de regex para chamadas de ferramentas.</li>
+            <li><span class="badge badge-tool">Tools</span> <code>tool_registry.py</code>: Registro central de ferramentas (Busca Web, Leitura de URL, Calendário).</li>
+            <li><span class="badge badge-provider">Providers</span> <code>provider_factory.py</code>: Sistema de failover entre provedores de LLM.</li>
+        </ul>
+
+        <h2>🛠️ Habilidades (Skills) Dinâmicas</h2>
+        <p>As habilidades são carregadas dinamicamente de arquivos <code>SKILL.md</code>. Cada skill define seu próprio sistema de "regras de ouro" e instruções de personalidade.</p>
+        
+        <div class="skill-card">
+            <h3>🚗 Avaliador Veicular Saga</h3>
+            <p><strong>Objetivo:</strong> Avaliação técnica de veículos (usado por novo) com cruzamento de dados FIPE e Mercado Real.</p>
+            <ul>
+                <li><strong>Gatilho:</strong> "Quanto vale meu carro?", "HB20 2022".</li>
+                <li><strong>Ferramentas:</strong> <code>search_web</code>, <code>read_url</code>.</li>
+            </ul>
+        </div>
+
+        <div class="skill-card">
+            <h3>🧠 Psicóloga (Najara)</h3>
+            <p><strong>Objetivo:</strong> Assistência psicológica direta e provocativa baseada em teorias comportamentais e freudianas.</p>
+            <ul>
+                <li><strong>Estilo:</strong> Direto, sem rodeios, focado em quebra de padrões.</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Como Iniciar</h2>
+        <pre><code># 1. Instalar dependências
+pip install -r requirements.txt
+
+# 2. Configurar .env (Copiar de .env.example)
+# 3. Rodar o bot
+python main.py</code></pre>
+
+        <p style="text-align: center; color: #95a5a6; margin-top: 50px;">
+            Desenvolvido por Wesley Faria | 2026
+        </p>
+    </div>
+</body>
+</html>
