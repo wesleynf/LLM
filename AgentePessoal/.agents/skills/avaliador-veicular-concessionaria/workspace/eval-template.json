@@ -1,0 +1,10 @@
+{
+  "test_cases": [
+    {
+      "id": "T1",
+      "name": "Hyundai HB20 2022",
+      "prompt": "Avaliar meu HB20 Comfort 2022 com 20.000km, laudo aprovado, revisoes ok. Quero um Creta 0km.",
+      "expected": "Relat\u00f3rio detalhado com pre\u00e7o FIPE e margem."
+    }
+  ]
+}

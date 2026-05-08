@@ -1,0 +1,16 @@
+{
+  "evaluations": [
+    {
+      "id": 1,
+      "name": "resumo-politica",
+      "prompt": "Resuma as principais not\u00edcias de pol\u00edtica hoje.",
+      "expected_keywords": ["congresso", "governo", "vota\u00e7\u00e3o"]
+    },
+    {
+      "id": 2,
+      "name": "resumo-tecnologia",
+      "prompt": "O que aconteceu de novo na IA hoje?",
+      "expected_keywords": ["modelo", "lan\u00e7amento", "intelig\u00eancia"]
+    }
+  ]
+}
